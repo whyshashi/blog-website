@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: rgb(168, 238, 238);
+}
+
+nav{
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+#navuser{
+    width: 30vw;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#navuser button{
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 10px;
+}
+    </style>
+    <title>signup</title>
+</head>
+<body>
+    <nav>
+        <h1 id="logo">blogging Website</h1>
+        <div id="navuser">
+            <button id="home">home</button>
+        </div>
+    </nav>
+
+    <h1>SIGNUP</h1>
+
+    <div id="outercontainersignup">
+        <div id="signupcontainer">
+            <form id="signupform">
+                <label for="signupusername">enter username</label>
+                <input type="text" id="signupusername">
+                <label for="signuppassword">enter password</label>
+                <input type="text" id="signuppassword">
+                <button type="submit" id="signupsubmit">submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script>
+    let userurl = "http://localhost:3000/users"
+    let home = document.querySelector("#home");
+
+    home.addEventListener("click",()=>{
+        window.location.href="../index.html"
+    });
+
+
+    let form = document.querySelector("#signupform");
+
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let inputname = e.target[0].value;
+            let inputpassword = e.target[1].value
+            handlesignup(inputname,inputpassword);
+        })
+
+    async function handlesignup(un,pw){
+            let d = await fetch(userurl);
+            let userdata = await d.json();
+            let temp = userdata.filter((ele)=>{
+                return ele.username===un;
+            })
+            if(un==''){
+                alert("enter a valid name");
+            }
+            else if(temp.length!==0){
+                tempobj = temp[0];
+                alert("username already exist")
+                console.log(tempobj);
+            }
+            else{
+                let obj = {
+                    "id":Math.floor(Math.random() * 10000000),
+                    "username":un,
+                    "password":pw,
+                    "savelist":[]
+                };
+                fetch(userurl,{
+                    method: "POST",
+                    headers:{"Content-type":"application/json" },
+                    body : JSON.stringify(obj)
+                }).then((res)=>{
+                    console.log(res);
+                    
+                    alert("signed up successfully");
+                    window.location.href="../index.html";
+                    
+                })
+
+
+            }
+        }
+
+</script>
+
+</html>

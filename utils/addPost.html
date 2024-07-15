@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: rgb(168, 238, 238);
+}
+
+nav{
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+#navuser{
+    width: 30vw;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#navuser button{
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 10px;
+}
+    </style>
+    <title>login</title>
+</head>
+<body>
+    <nav>
+        <h1 id="logo">blogging Website</h1>
+        <div id="navuser">
+            <button id="home">home</button>
+        </div>
+    </nav>
+    <h1>ADD POST</h1>
+    <div id="outercontainerlogin">
+        <div id="postcontainer">
+            <form id="postform">
+                <label for="title">enter title : </label>
+                <input type="text" id="title">
+
+                <select  id="catsel">
+                </select>
+
+                <label for="post_text">enter PostText : </label>
+                <textarea id="post_text"></textarea>
+
+                <button type="submit" id="loginsubmit">submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+
+let catsel = document.querySelector("#catsel");
+async function categoryf(){
+    let t = await fetch(`http://localhost:3000/categoryList`);
+    let data = await t.json();
+    data.forEach(ele => {
+        let ot = document.createElement("option");
+        ot.innerText = ele;
+        catsel.append(ot);
+    });
+}
+categoryf();
+
+
+
+let home = document.querySelector("#home");
+
+    home.addEventListener("click",()=>{
+        alert("data not saved");
+        window.location.href="../index.html"
+    });
+
+
+
+// start
+    let postsurl = "http://localhost:3000/posts"
+    let j = localStorage.getItem("loggedUser")
+    
+    logcheck(j);
+
+    function logcheck(j){
+        
+
+    if(j){
+        let u = JSON.parse(j);
+        console.log(u);
+        let form = document.querySelector("#postform");
+
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let inputname = u.username;
+            let titlep = e.target[0].value;
+            let catp = e.target[1].value;
+            let textp = e.target[2].value;
+            console.log(inputname,titlep,catp,textp);
+            let obj = {
+                "id":Math.floor(Math.random() * 10000000),
+                "title":titlep,
+                "username":inputname,
+                "category":catp,
+                "comments":[],
+                "reactionCount": 0,
+                "reaction":[],
+                "post_text": textp
+            }
+            console.log(obj);
+
+
+            handlelogin(obj);
+        })
+        
+
+        async function handlelogin(obj){
+            fetch(postsurl,{
+                    method: "POST",
+                    headers:{"Content-type":"application/json" },
+                    body : JSON.stringify(obj)
+                }).then((res)=>{
+                    console.log(res);
+                    alert("successfully added the post");
+                    window.location.href="../index.html";
+                }).catch((e)=>{
+                    alert(e);
+                })
+        }
+       
+    }
+    else{
+          alert("Log in first");
+          window.location.href = "/utils/login.html";
+       }
+    }
+
+    
+</script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: rgb(168, 238, 238);
+}
+
+nav{
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+#navuser{
+    width: 30vw;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#navuser button{
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 10px;
+}
+    </style>
+    <title>login</title>
+</head>
+<body>
+    <nav>
+        <h1 id="logo">blogging Website</h1>
+        <div id="navuser">
+            <button id="home">home</button>
+        </div>
+    </nav>
+    <h1>LOGIN</h1>
+    <div id="outercontainerlogin">
+        <div id="logincontainer">
+            <form id="loginform">
+                <label for="loginusername">enter username</label>
+                <input type="text" id="loginusername">
+                <label for="loginpassword">enter password</label>
+                <input type="text" id="loginpassword">
+                <button type="submit" id="loginsubmit">submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+
+let home = document.querySelector("#home");
+
+home.addEventListener("click",()=>{
+    window.location.href="../index.html"
+});
+    
+    let userurl = "http://localhost:3000/users"
+    
+
+    let j = localStorage.getItem("loggedUser");
+
+
+
+    logcheck(j);
+
+    function logcheck(j){
+        if(j){
+        alert("already logged in");
+        window.location.href = "../index.html";
+    }
+    else{
+        let form = document.querySelector("#loginform");
+
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let inputname = e.target[0].value;
+            let inputpassword = e.target[1].value
+            handlelogin(inputname,inputpassword);
+        })
+        
+
+        async function handlelogin(un,pw){
+            let d = await fetch(userurl);
+            let userdata = await d.json();
+            let temp = userdata.filter((ele)=>{
+                return ele.username===un && ele.password===pw;
+            })
+            if(temp){
+                tempobj = temp[0];
+                console.log(tempobj);
+                localStorage.setItem("loggedUser",JSON.stringify(tempobj));
+                alert("Successfully logged in");
+                window.location.href="../index.html";
+            }
+            else{
+                alert("wrong credentials");
+            }
+        }
+       
+    }
+    }
+    
+</script>
+</html>

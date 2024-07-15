@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>blogs</title>
+</head>
+<body>
+    <nav>
+        <h1 id="logo">blogging Website</h1>
+        <div id="navuser">
+            <button id="addpost">new post</button>
+            <button id="login">login</button>
+            <button id="signup">Signup</button>
+            <button>Savedpost</button>
+        </div>
+        
+    </nav>
+
+    <div id="filterdiv">
+        <form id="searchform">
+            <label for="searchby">search by : </label>
+            <select name="" id="searchby">
+                <option value="title">title</option>
+                <option value="username">user</option>
+                <option value="post_text">content</option>
+            </select>
+            <input type="text" name="" id="">
+            <button type="submit">search</button>
+        </form>
+        <label for="filterbycat">search by category : </label>
+        <select  id="filterbycat">
+            <option value="">All category</option>
+        </select>
+    </div>
+
+
+    <div id="pagination">
+        <button id="left">left</button>
+        <h3 id="pagenum">1</h3>
+        <button id="right">right</button>
+    </div>
+
+    <div id="containerouter">
+        <div id="container">
+
+        </div>
+    </div>
+</body>
+<script src="script.js" type="module" ></script>
+</html>

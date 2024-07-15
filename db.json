@@ -1,0 +1,186 @@
+{
+  "users": [
+    {
+      "id": 4642935,
+      "username": "mukesh",
+      "password": "0000",
+      "savelist": []
+    },
+    {
+      "id": 7804638,
+      "username": "shashi",
+      "password": "1234",
+      "savelist": []
+    },
+    {
+      "id": 2520727,
+      "username": "ankit",
+      "password": "4444",
+      "savelist": []
+    },
+    {
+      "id": 3710583,
+      "username": "yash",
+      "password": "5436",
+      "savelist": []
+    },
+    {
+      "id": 2691093,
+      "username": "Dharmakirti Joshi",
+      "password": "1234",
+      "savelist": []
+    },
+    {
+      "id": 1907862,
+      "username": "aadarsh",
+      "password": "1266",
+      "savelist": []
+    },
+    {
+      "id": 7628630,
+      "username": "shashi1",
+      "password": "1234",
+      "savelist": []
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "The stubborn food inflation problem",
+      "username": " Dharmakirti Joshi",
+      "category": "technology",
+      "comments": [
+        {
+          "username": "shashi",
+          "comment_Text": "nice blog"
+        },
+        {
+          "username": "ankit",
+          "comment_Text": "good read"
+        }
+      ],
+      "reactionCount": 1,
+      "reaction": [
+        {
+          "username": "shashi",
+          "emoji": ";)"
+        }
+      ],
+      "post_text": "Monetary policy in India has been navigating diverging economic trends. While GDP growth continues to surprise on the upside, core inflation seems set on a downward trajectory. However, food inflation — typically considered idiosyncratic — has stayed stubbornly elevated, restricting the fall in the consumer price index (CPI) and restraining the Monetary Policy Committee of the Reserve Bank of India. Mint Road wants to rein in inflation at 4 per cent on a durable basis from 4.8 per cent now. But is this possible without falling food inflation?"
+    },
+    {
+      "id": 2,
+      "title": "dfggd",
+      "username": "ankit",
+      "category": "technology",
+      "comments": [
+        {
+          "username": "shashi",
+          "comment_Text": "nice blog"
+        },
+        {
+          "username": "ankit",
+          "comment_Text": "good read"
+        }
+      ],
+      "reactionCount": 1,
+      "reaction": [
+        {
+          "username": "shashi",
+          "emoji": ";)"
+        }
+      ],
+      "post_text": "testdklglg kljfgklsjglfdk lkdfjglskdfjg lkjfdgkj"
+    },
+    {
+      "id": 3,
+      "title": "The stubborn food inflation problem",
+      "username": " Dharmakirti Joshi",
+      "category": "technology",
+      "comments": [
+        {
+          "username": "shashi",
+          "comment_Text": "nice blog"
+        },
+        {
+          "username": "ankit",
+          "comment_Text": "good read"
+        }
+      ],
+      "reactionCount": 1,
+      "reaction": [
+        {
+          "username": "shashi",
+          "emoji": ";)"
+        }
+      ],
+      "post_text": "Monetary policy in India has been navigating diverging economic trends. While GDP growth continues to surprise on the upside, core inflation seems set on a downward trajectory. However, food inflation — typically considered idiosyncratic — has stayed stubbornly elevated, restricting the fall in the consumer price index (CPI) and restraining the Monetary Policy Committee of the Reserve Bank of India. Mint Road wants to rein in inflation at 4 per cent on a durable basis from 4.8 per cent now. But is this possible without falling food inflation?"
+    },
+    {
+      "id": 1,
+      "title": "Lorem",
+      "username": "shashi",
+      "category": "sports",
+      "comments": [
+        {
+          "username": "shashi",
+          "comment_Text": "nice blog"
+        },
+        {
+          "username": "ankit",
+          "comment_Text": "good read"
+        }
+      ],
+      "reactionCount": 1,
+      "reaction": [
+        {
+          "username": "shashi",
+          "emoji": ";)"
+        }
+      ],
+      "post_text": "testdklglg kljfgklsjglfdk lkdfjglskdfjg lkjfdgkj"
+    },
+    {
+      "id": 1,
+      "title": "orem",
+      "username": "shashi",
+      "category": "sports",
+      "comments": [
+        {
+          "username": "shashi",
+          "comment_Text": "nice blog"
+        },
+        {
+          "username": "ankit",
+          "comment_Text": "good read"
+        }
+      ],
+      "reactionCount": 1,
+      "reaction": [
+        {
+          "username": "shashi",
+          "emoji": ";)"
+        }
+      ],
+      "post_text": "testdklglg kljfgklsjglfdk lkdfjglskdfjg lkjfdgkj"
+    },
+    {
+      "id": 6529460,
+      "title": "cricket blog",
+      "username": "shashi",
+      "category": "sports",
+      "comments": [],
+      "reactionCount": 0,
+      "reaction": [],
+      "post_text": "cricket is the best sport in the world"
+    }
+  ],
+  "categoryList": [
+    "sports",
+    "politics",
+    "medicine",
+    "technology",
+    "science",
+    "environment"
+  ]
+}
